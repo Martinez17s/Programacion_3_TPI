@@ -9,13 +9,18 @@ namespace Programacion_3_TPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Policy = "AdminPolicy")]
     public class SubjectController : ControllerBase
     {
+        private readonly ISubjectService _subjectService;
 
-
+        public SubjectController(ISubjectService subjectService) 
+        { 
+            _subjectService = subjectService;
+        }
 
         [HttpPost("CreateSubject")]
-        public async Task<ActionResult<SubjectDto>> CreateSubject([FromBody] SubjectCreateRequest request) { }
+        public async Task<ActionResult<SubjectDto>> CreateSubject([FromBody] SubjectCreateRequest request) {}
 
         [HttpGet("GetSubject/{id}")]
         public async Task<ActionResult> GetSubject([FromRoute] int id) { }

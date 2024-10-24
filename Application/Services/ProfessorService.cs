@@ -13,7 +13,7 @@ public class ProfessorService : IProfessorService
         _subjectRepository = subjectRepository;
     }
 
-    public async Task<List<ClientDto>> GetClientsEnrolledInMySubjects(int professorId)
+    public async Task<List<ClientDto>> GetClientsInSubjects(int professorId)
     {
         var professor = await _userRepository.GetProfessorByIdAsync(professorId);
 

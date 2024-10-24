@@ -76,7 +76,7 @@ namespace Application.Services
             var dto = new EnrollmentDto()
             {
                 EnrollmentId = enrollment.EnrollmentId,
-                SubjectId = enrollment.ActivityId,
+                SubjectId = enrollment.SubjectId,
                 ClientId = enrollment.ClientId,
             };
             return dto;
