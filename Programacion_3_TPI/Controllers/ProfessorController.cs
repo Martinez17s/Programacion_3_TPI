@@ -18,11 +18,11 @@ namespace TridenteGym.Api.Controllers
         }
 
         [HttpGet("{professorId}/clients")]
-        public async Task<ActionResult<List<ClientDto>>> GetClientsEnrolledInMyActivities([FromRoute] int professorId)
+        public async Task<ActionResult<List<ClientDto>>> GetClientsInSubject([FromRoute] int professorId)
         {
             try
             {
-                var clients = await _profesService.GetClientsEnrolledInMyActivities(professorId);
+                var clients = await _profesService.GetClientsInSubject(professorId);
                 if (clients == null || !clients.Any())
                 {
                     return NotFound($"No clients found for professor with ID {professorId}.");

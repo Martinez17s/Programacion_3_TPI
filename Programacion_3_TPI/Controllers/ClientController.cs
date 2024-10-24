@@ -17,11 +17,11 @@ namespace TridenteGym.Api.Controllers
         }
 
         [HttpGet("{clientId}/GetAllActivitiesEnrollments")]
-        public async Task<ActionResult<List<ActivityDto>>> GetAllActivitiesEnrollments([FromRoute] int clientId)
+        public async Task<ActionResult<List<SubjectDto>>> GetAllActivitiesEnrollments([FromRoute] int clientId)
         {
             try
             {
-                var activities = await _clientService.GetClientActivities(clientId);
+                var activities = await _clientService.GetClientSubjects(clientId);
                 if (activities == null || !activities.Any())
                 {
                     return NotFound($"No activities found for client with ID {clientId}.");
