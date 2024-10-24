@@ -90,5 +90,15 @@ namespace Application.Services
             
             await _repository.DeleteAsync(enrollment);
         }
+
+        Task<EnrollmentDto> IEnrollmentService.GetAllAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<EnrollmentDto> UpdateAsync(EnrollmentDto enrollment)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

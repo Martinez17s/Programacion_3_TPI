@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using System.Text.Json.Serialization;
 
 namespace Application.DTOs
 {
