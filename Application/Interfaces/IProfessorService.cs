@@ -9,6 +9,6 @@ namespace Application.Interfaces
 {
     public interface IProfessorService
     {
-        Task<List<ClientDto>> GetClientsInSubject(int professorId);
+        Task<List<ClientDto>> GetClientsInSubjects(int professorId);
     }
 }

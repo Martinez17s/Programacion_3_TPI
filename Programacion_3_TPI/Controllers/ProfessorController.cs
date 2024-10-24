@@ -18,11 +18,11 @@ namespace Programacion_3_TPI.Api.Controllers
         }
 
         [HttpGet("{professorId}/clients")]
-        public async Task<ActionResult<List<ClientDto>>> GetClientsEnrolledInMySubjects([FromRoute] int professorId)
+        public async Task<ActionResult<List<ClientDto>>> GetClientsInSubjects([FromRoute] int professorId)
         {
             try
             {
-                var clients = await _profesService.GetClientsEnrolledInMySubjects(professorId);
+                var clients = await _profesService.GetClientsInSubjects(professorId);
                 if (clients == null || !clients.Any())
                 {
                     return NotFound($"No clients found for professor with ID {professorId}.");
