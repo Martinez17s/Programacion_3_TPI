@@ -8,5 +8,6 @@ namespace Domain.Interfaces
 {
     internal class ISubjectRepository
     {
+        
     }
 }

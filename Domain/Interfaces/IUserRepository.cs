@@ -2,10 +2,12 @@ using Domain.Entities;
 
 namespace Domain.Interfaces
 {
-    public interface IUserRepository : IBaseRepository<User>
+    public interface IUserRepository
     {
-        Task<User> GetUserByUserNameAsync(string userName);
-        Task<Professor> GetProfessorByIdAsync(int professorId, CancellationToken cancellationToken = default);
-        Task<Client> GetClientByIdAsync(int clientId, CancellationToken cancellationToken = default);
+        User GetUserById(int id);
+        IEnumerable<User> GetAllUsers();
+        void AddUser(User user);
+        void UpdateUser(User user);
+        void DeleteUser(int id);
     }
 }
