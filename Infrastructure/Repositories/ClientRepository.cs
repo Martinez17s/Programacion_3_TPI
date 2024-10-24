@@ -3,6 +3,7 @@ using Domain.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using Infrastructure.Data;
 
 namespace Infrastructure.Repositories
 {
