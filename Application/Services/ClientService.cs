@@ -13,22 +13,22 @@ namespace Application.Services
             _clientService = clientService;
         }
 
-        public async Task<List<ActivityDto>> GetClientActivities(int clientId)
+        public async Task<List<SubjectDto>> GetClientSubjects(int clientId)
         {
-            var activities = _clientService.GetClientActivities(clientId);
-            var activitiesDto = new List<ActivityDto>();
-            foreach (var activity in activitiesDto)
+            var subjects = _clientService.GetClientSubjects(clientId);
+            var subjectsDto = new List<SubjectDto>();
+            foreach (var subject in subjectsDto)
             {
-                var activityDto = new ActivityDto()
+                var subjectDto = new SubjectDto()
                 {
-                    Title = activity.Title,
-                    Description = activity.Description,
-                    ProfessorId = activity.ProfessorId,
-                    Price = activity.Price,
+                    Title = subject.Title,
+                    Description = subject.Description,
+                    ProfessorId = subject.ProfessorId,
+                    Price = subject.Price,
                 };
-                activitiesDto.Add(activityDto);
+                subjectsDto.Add(subjectDto);
             }
-            return activitiesDto;
+            return subjectsDto;
         }
     }
 }
