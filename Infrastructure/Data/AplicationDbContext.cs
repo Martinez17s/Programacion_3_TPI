@@ -59,7 +59,7 @@ namespace Infrastructure.Data
             // Configuración de la relación entre Subject y Professor
             modelBuilder.Entity<Subject>()
                 .HasOne(a => a.Professor)
-                .WithMany(p => p.subjects)
+                .WithMany(p => p.Subjects)
                 .HasForeignKey(a => a.ProfessorId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
