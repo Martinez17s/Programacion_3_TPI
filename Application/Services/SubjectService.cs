@@ -8,10 +8,10 @@ namespace Application.Services
 {
     public class SubjectService : ISubjectService
     {
-        private readonly ISubjectRepository _activityRepositiry;
-        public SubjectService(ISubjectRepository activityRepository)
+        private readonly ISubjectRepository _subjectRepositiry;
+        public SubjectService(ISubjectRepository subjectRepository)
         {
-            _activityRepositiry = activityRepository;
+            _subjectRepositiry = subjectRepository;
         }
 
         public async Task<SubjectDto> CreateAsync(SubjectCreateRequest request)
@@ -21,7 +21,7 @@ namespace Application.Services
             Subject.Description = request.Description;
             Subject.ProfessorId = request.ProfessorId;
 
-            _ = await _SubjectRepositiry.CreateAsync(Subject);
+            _ = await _SubjectRepository.CreateAsync(Subject);
 
             var dto = new SubjectDto();
             dto.SubjectId = Subject.SubjectId;
@@ -32,9 +32,9 @@ namespace Application.Services
             return dto;
         }
 
-        public async Task<SubjectyDto> GetSubjectAsync(int id)
+        public async Task<SubjectDto> GetSubjectAsync(int id)
         {
-            var result = await _SubjectRepositiry.GetByIdAsync(id);
+            var result = await _SubjectRepository.GetByIdAsync(id);
             if (result == null)
                 throw new Exception("Subject not found");
 
@@ -50,7 +50,7 @@ namespace Application.Services
 
         public async Task<List<SubjectDto>> GetAllAsync()
         {
-            var result = await _subjectRepositiry.GetAllAsync();
+            var result = await _subjectRepository.GetAllAsync();
             var resultDto = new List<SubjectDto>();
             foreach (var aubject in result)
             {
@@ -62,23 +62,22 @@ namespace Application.Services
                     Price = subject.Price,
                     ProfessorId = subject.ProfessorId,
                 };
-                resultDto.Add(subjectDto);
+                resultDto.Add(SubjectDto);
             }
             return resultDto;
         }
 
         public async Task<SubjectDto> UpdateAsync(SubjectDto subjectDto, int id)
         {
-            var subject = await _subjectRepositiry.GetByIdAsync(id);
+            var subject = await _subjectRepository.GetByIdAsync(id);
             if (subject == null)
                 throw new Exception("Activity not found");
 
             subject.Title = subjectDto.Title;
             subject.Description = subjectDto.Description;
-            subject.Price = subjectDto.Price;
             subject.ProfessorId = subjectDto.ProfessorId;
 
-            await _subjectRepositiry.UpdateAsync(subject);
+            await _subjectRepository.UpdateAsync(subject);
 
             var dto = new SubjectDto()
             {
@@ -93,11 +92,11 @@ namespace Application.Services
 
         public async Task DeleteAsync(int id)
         {
-            var subject = await _subjectRepositiry.GetByIdAsync(id);
+            var subject = await _subjectRepository.GetByIdAsync(id);
             if (subject == null)
                 throw new Exception("subject not found");
 
-            await _subjectRepositiry.DeleteAsync(subject);
+            await _subjectRepository.DeleteAsync(subject);
         }
     }
 }

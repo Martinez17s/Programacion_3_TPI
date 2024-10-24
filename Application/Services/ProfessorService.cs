@@ -5,15 +5,15 @@ using Domain.Interfaces;
 public class ProfessorService : IProfessorService
 {
     private readonly IUserRepository _userRepository;
-    private readonly IActivityRepository _activityRepository;
+    private readonly ISubjectRepository _subjectRepository;
 
-    public ProfessorService(IUserRepository userRepository, IActivityRepository activityRepository)
+    public ProfessorService(IUserRepository userRepository, ISubjectRepository subjectRepository)
     {
         _userRepository = userRepository;
-        _activityRepository = activityRepository;
+        _subjectRepository = subjectRepository;
     }
 
-    public async Task<List<ClientDto>> GetClientsEnrolledInMyActivities(int professorId)
+    public async Task<List<ClientDto>> GetClientsEnrolledInMySubjects(int professorId)
     {
         var professor = await _userRepository.GetProfessorByIdAsync(professorId);
 
@@ -22,8 +22,8 @@ public class ProfessorService : IProfessorService
             throw new KeyNotFoundException($"Professor with ID {professorId} not found.");
         }
 
-        var activities = await _activityRepository.GetActivitiesByProfessorIdAsync(professorId);
-        var clients = activities.SelectMany(a => a.Enrollments)
+        var subjects = await _subjectRepository.GetSubjectsByProfessorIdAsync(professorId);
+        var clients = subjects.SelectMany(a => a.Enrollments)
                                 .Select(e => new ClientDto
                                 {
                                     Id = e.Client.Id,
