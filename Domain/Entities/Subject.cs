@@ -13,12 +13,14 @@ namespace Domain.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int SubjectId { get; set; }
+        [Column(TypeName = "nvarchar(100)")]
 
         public string? Title { get; set; }
+        [Column(TypeName = "nvarchar(100)")]
 
         public string? Description { get; set; }
 
-        public int Price { get; set; }
+        public int Aula { get; set; }
 
         public int ProfessorId { get; set; }
 

@@ -11,6 +11,6 @@ namespace Domain.Interfaces
     public interface ISubjectRepository : IBaseRepository<Subject>
     {
         // Agrega métodos específicos para Subject si es necesario
-        Task<List<Activity>> GetActivitiesByProfessorIdAsync(int professorId, CancellationToken cancellationToken = default);
+        Task<List<Subject>> GetSubjectsByProfessorIdAsync(int professorId, CancellationToken cancellationToken = default);
     }
 }

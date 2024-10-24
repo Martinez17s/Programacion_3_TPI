@@ -24,7 +24,7 @@ namespace Application.Services
                     Title = subject.Title,
                     Description = subject.Description,
                     ProfessorId = subject.ProfessorId,
-                    Price = subject.Price,
+                     = subject.Price,
                 };
                 subjectsDto.Add(subjectDto);
             }

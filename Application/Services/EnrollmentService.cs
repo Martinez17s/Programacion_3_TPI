@@ -19,14 +19,14 @@ namespace Application.Services
         {
             var enrollment = new Enrollment();
             enrollment.ClientId = request.ClientId;
-            enrollment.ActivityId = request.ActivityId;
+            enrollment.SubjectId = request.SubjectId;
 
             _ = await _repository.CreateAsync(enrollment);
 
             var dto = new EnrollmentDto();
-            dto.ActivityId = enrollment.ActivityId;
+            dto.SubjectId = enrollment.SubjectId;
             dto.ClientId = enrollment.ClientId;
-            dto.EnrollmentId = enrollment.ActivityId;
+            dto.EnrollmentId = enrollment.SubjectId;
 
             return dto;
         }
@@ -40,7 +40,7 @@ namespace Application.Services
             var enrollmentDto = new EnrollmentDto()
             {
                 EnrollmentId = result.EnrollmentId,
-                ActivityId = result.ActivityId,
+                SubjectId = result.SubjectId,
                 ClientId = result.ClientId
             };
             return enrollmentDto;
@@ -54,7 +54,7 @@ namespace Application.Services
                 var enrollmentDto = new EnrollmentDto()
                 {
                     EnrollmentId = enrollment.EnrollmentId,
-                    ActivityId = enrollment.ActivityId,
+                    SubjectId = enrollment.SubjectId,
                     ClientId = enrollment.ClientId,
                 };
                 resultDto.Add(enrollmentDto);
@@ -69,14 +69,14 @@ namespace Application.Services
                 throw new Exception("Enrollment not Found");
 
             enrollment.ClientId = enrollmentDto.ClientId;
-            enrollment.ActivityId = enrollmentDto.ActivityId;
+            enrollment.SubjectId = enrollmentDto.SubjectId;
 
             await _repository.UpdateAsync(enrollment);
 
             var dto = new EnrollmentDto()
             {
                 EnrollmentId = enrollment.EnrollmentId,
-                ActivityId = enrollment.ActivityId,
+                SubjectId = enrollment.ActivityId,
                 ClientId = enrollment.ClientId,
             };
             return dto;

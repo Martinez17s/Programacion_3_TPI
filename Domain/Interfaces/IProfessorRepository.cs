@@ -9,6 +9,6 @@ namespace Domain.Interfaces
 {
     public interface IProfessorRepository
     {
-        ICollection<Client> GetClientsEnrolledInMyActivities(int professorId);
+        ICollection<Client> GetClientsEnrolledInMySubjects(int professorId);
     }
 }

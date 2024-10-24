@@ -1,18 +1,15 @@
-﻿using Domain.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Entities;
 
 namespace Domain.Interfaces
 {
-    
-   public interface IClientRepository : IBaseRepository<Client>
-   {
-    // Agrega métodos específicos para Client si es necesario
-    Client GetClientByEmail(string email);
-   }
-   
-
+    public interface IClientRepository
+    {
+        ICollection<Subject> GetClientSubjects(int clientId);
+    }
 }

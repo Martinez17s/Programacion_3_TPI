@@ -20,16 +20,14 @@ namespace Application.Services
             Subject.Title = request.Title;
             Subject.Description = request.Description;
             Subject.ProfessorId = request.ProfessorId;
-            Subject.Price = request.Price;
 
             _ = await _SubjectRepositiry.CreateAsync(Subject);
 
             var dto = new SubjectDto();
-            dto.ActivityId = Subject.SubjectId;
+            dto.SubjectId = Subject.SubjectId;
             dto.Title = Subject.Title;
             dto.Description = Subject.Description;
             dto.ProfessorId = Subject.ProfessorId;
-            dto.Price = Subject.Price;
 
             return dto;
         }
@@ -45,7 +43,7 @@ namespace Application.Services
             SubjectDto.Title = result.Title;
             SubjectDto.Description = result.Description;
             SubjectDto.ProfessorId= result.ProfessorId;
-            SubjectDto.Price = result.Price;
+
             
             return SubjectDto;
         }
@@ -71,7 +69,7 @@ namespace Application.Services
 
         public async Task<SubjectDto> UpdateAsync(SubjectDto subjectDto, int id)
         {
-            var subject = await _activityRepositiry.GetByIdAsync(id);
+            var subject = await _subjectRepositiry.GetByIdAsync(id);
             if (subject == null)
                 throw new Exception("Activity not found");
 
@@ -87,7 +85,6 @@ namespace Application.Services
                 SubjectId = subject.SubjectId,
                 Title = subject.Title,
                 Description = subject.Description,
-                Price = subject.Price,
                 ProfessorId = subject.ProfessorId,
             };
 
