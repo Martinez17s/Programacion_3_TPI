@@ -1,5 +1,9 @@
-﻿using Application.DTOs;
+﻿using Application.DTOs.Requests;
+using Application.DTOs;
+using Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace Programacion_3_TPI.Controllers
 {

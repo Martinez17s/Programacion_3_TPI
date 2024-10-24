@@ -4,7 +4,7 @@ using Application.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace TridenteGym.Api.Controllers
+namespace Programacion_3_TPI.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -18,11 +18,11 @@ namespace TridenteGym.Api.Controllers
         }
 
         [HttpGet("{professorId}/clients")]
-        public async Task<ActionResult<List<ClientDto>>> GetClientsInSubject([FromRoute] int professorId)
+        public async Task<ActionResult<List<ClientDto>>> GetClientsEnrolledInMySubjects([FromRoute] int professorId)
         {
             try
             {
-                var clients = await _profesService.GetClientsInSubject(professorId);
+                var clients = await _profesService.GetClientsEnrolledInMySubjects(professorId);
                 if (clients == null || !clients.Any())
                 {
                     return NotFound($"No clients found for professor with ID {professorId}.");

@@ -3,7 +3,7 @@ using Application.Interfaces;
 using Domain.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 
-namespace TridenteGym.Api.Controllers
+namespace Programacion_3_TPI.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

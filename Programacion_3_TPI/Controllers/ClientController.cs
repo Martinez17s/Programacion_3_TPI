@@ -3,7 +3,7 @@ using Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace TridenteGym.Api.Controllers
+namespace Programacion_3_TPI.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -16,17 +16,17 @@ namespace TridenteGym.Api.Controllers
             _clientService = clientService;
         }
 
-        [HttpGet("{clientId}/GetAllActivitiesEnrollments")]
-        public async Task<ActionResult<List<SubjectDto>>> GetAllActivitiesEnrollments([FromRoute] int clientId)
+        [HttpGet("{clientId}/GetAllSubjectsEnrollments")]
+        public async Task<ActionResult<List<SubjectDto>>> GetAllSubjectsEnrollments([FromRoute] int clientId)
         {
             try
             {
-                var activities = await _clientService.GetClientSubjects(clientId);
-                if (activities == null || !activities.Any())
+                var subjects = await _clientService.GetClientSubjects(clientId);
+                if (subjects == null || !subjects.Any())
                 {
-                    return NotFound($"No activities found for client with ID {clientId}.");
+                    return NotFound($"No subjects found for client with ID {clientId}.");
                 }
-                return Ok(activities);
+                return Ok(subjects);
             }
             catch (KeyNotFoundException ex)
             {
