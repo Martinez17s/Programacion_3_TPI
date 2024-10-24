@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces
 {
-    public interface IBaseRepository<T>
+    public interface IBaseRepository<T> where T : class
     {
         IEnumerable<T> GetAll();
         T GetById(int id);

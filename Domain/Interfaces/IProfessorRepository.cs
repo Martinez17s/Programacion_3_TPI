@@ -9,10 +9,6 @@ namespace Domain.Interfaces
 {
     public interface IProfessorRepository
     {
-        Professor GetProfessorById(int id);
-        IEnumerable<Professor> GetAllProfessors();
-        void AddProfessor(Professor professor);
-        void UpdateProfessor(Professor professor);
-        void DeleteProfessor(int id);
+        ICollection<Client> GetClientsEnrolledInMyActivities(int professorId);
     }
 }
