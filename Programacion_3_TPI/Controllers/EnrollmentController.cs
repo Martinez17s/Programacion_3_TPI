@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 
-namespace TridenteGym.Api.Controllers
+namespace Programacion_3_TPI.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
