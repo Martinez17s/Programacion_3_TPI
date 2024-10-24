@@ -15,7 +15,6 @@ namespace Application.DTOs.Requests
         public string Description { get; set; }
         [Required]
         public string ProfessorId { get; set; }
-        public int price { get; set; }
 
     }
 }

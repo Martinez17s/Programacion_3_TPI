@@ -21,10 +21,10 @@ namespace Application.Services
             Subject.Description = request.Description;
             Subject.ProfessorId = request.ProfessorId;
 
-            _ = await _SubjectRepository.CreateAsync(Subject);
+            _ = await _subjectRepository.CreateAsync(subject);
 
             var dto = new SubjectDto();
-            dto.SubjectId = Subject.SubjectId;
+            dto.SubjectId = subject.SubjectId;
             dto.Title = Subject.Title;
             dto.Description = Subject.Description;
             dto.ProfessorId = Subject.ProfessorId;
