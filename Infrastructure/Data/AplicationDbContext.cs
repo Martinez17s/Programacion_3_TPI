@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -58,7 +59,7 @@ namespace Infrastructure.Data
             // Configuración de la relación entre Subject y Professor
             modelBuilder.Entity<Subject>()
                 .HasOne(a => a.Professor)
-                .WithMany(p => p.Subjects)
+                .WithMany(p => p.subjects)
                 .HasForeignKey(a => a.ProfessorId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
