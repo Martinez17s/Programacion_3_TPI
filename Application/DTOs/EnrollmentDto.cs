@@ -9,8 +9,8 @@ namespace Application.DTOs
 {
     public class EnrollmentDto
     {
-        public int EnrollmentId { get; set } 
-        public int SubjectId { get; set }
+        public int EnrollmentId { get; set; } 
+        public int SubjectId { get; set; }
         public int ClientId { get; set; }
         
     }
