@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Exceptions
+namespace Domain.Entities
 {
-    public class NotAllowedException : Exception
+    public class Admin : User
     {
-
-
     }
 }
