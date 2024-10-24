@@ -8,7 +8,7 @@ namespace Programacion_3_TPI.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Policy = "OwnerPolicy")]
+    [Authorize(Policy = "AdminPolicy")]
     public class AdminController : ControllerBase
     {
         private readonly IUserService _userService;
